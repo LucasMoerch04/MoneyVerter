@@ -34,15 +34,15 @@ amount = IntVar()
 
 
 #The top 20 most traded currencies according to blog.scopemarkets.com
-valutalist = ["USD","EUR","JPY","GBP","AUD", "CAD","CHF", "CNY", "HKD", "NZD","TRY","SGD","BRL","ILS","LYD","GIP","KWD","BHD","OMR","JOD"]
+valutalisttop20 = ["USD","EUR","JPY","GBP","AUD", "CAD","CHF", "CNY", "HKD", "NZD","TRY","SGD","BRL","ILS","LYD","GIP","KWD","BHD","OMR","JOD"]
 
 #creates and position typable dropdown with default value set to EURO
-valuta1_dropdown = CTk.CTkComboBox(root, values=valutalist,width=300,height=100,fg_color="#4ed464",font=("Roboto", 36, "bold"),dropdown_fg_color="#5f6e5d",dropdown_font=("Roboto",14,"bold"))
+valuta1_dropdown = CTk.CTkComboBox(root, values=valutalisttop20,width=300,height=100,fg_color="#4ed464",font=("Roboto", 36, "bold"),dropdown_fg_color="#5f6e5d",dropdown_font=("Roboto",14,"bold"))
 valuta1_dropdown.set("EUR")
 valuta1_dropdown.grid(row=2,column=0,padx=50,pady=10,rowspan=1,sticky=W)
 
 #creates and position typable dropdown with default value set to DOLLARS
-valuta2_dropdown = CTk.CTkComboBox(root, values=valutalist,width=300,height=100,fg_color="#4ed464",font=("Roboto", 36, "bold"),dropdown_fg_color="#5f6e5d",dropdown_font=("Roboto",14,"bold"))
+valuta2_dropdown = CTk.CTkComboBox(root, values=valutalisttop20,width=300,height=100,fg_color="#4ed464",font=("Roboto", 36, "bold"),dropdown_fg_color="#5f6e5d",dropdown_font=("Roboto",14,"bold"))
 valuta2_dropdown.set("USD")
 valuta2_dropdown.grid(row=2,column=1,padx=50,pady=10,rowspan=1)
     
@@ -52,14 +52,12 @@ def full():
     global valuta1_dropdown
     #If switch is off, dropdowns contains top 20 list
     if check1.get() == 0:
-        valutalisttop20 = valutalist
         valuta1_dropdown.configure(values=valutalisttop20)
         valuta2_dropdown.configure(values=valutalisttop20)
     #If switch is on, dropdowns contains Full list and makes size 2px smaller
     else: 
-        valutalist = valutalist_full
-        valuta1_dropdown.configure(values=valutalist,dropdown_font=("Roboto",12,"bold"))
-        valuta2_dropdown.configure(values=valutalist,dropdown_font=("Roboto",12,"bold"))
+        valuta1_dropdown.configure(values=valutalist_full,dropdown_font=("Roboto",12,"bold"))
+        valuta2_dropdown.configure(values=valutalist_full,dropdown_font=("Roboto",12,"bold"))
 
 
 #Creates and positions the entry where user puts the wished amount.
